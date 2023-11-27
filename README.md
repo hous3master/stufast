@@ -1,4 +1,4 @@
-![StuFastBanner](img/StuHack.png)
+<img src="img/StuHack.png" alt="StuFastBanner" style="max-height: 200px;">
 
 StuFast is a chromium extension for www.studocu.com to get free premium features.
 
@@ -22,4 +22,3 @@ Note. This is a fork from the [original StuHack repo](https://github.com/isancho
 6) Enjoy :)
    
   ![Installation](https://user-images.githubusercontent.com/67743899/149144506-714a84a0-cd10-4155-91fe-20c39753b578.jpg)
-  
