@@ -1,28 +1,50 @@
 function downloadDoc(){
-	var head = document.getElementsByTagName("head")[0].innerHTML;
-	var tit = document.getElementsByTagName("h1")[0].innerHTML;
-	var pages = document.getElementById('page-container').childNodes;
+    var head = document.getElementsByTagName("head")[0].innerHTML;
+    var tit = document.getElementsByTagName("h1")[0].innerHTML;
+    var pages = document.getElementById('page-container').childNodes;
 
-	width = pages[0].offsetWidth;
-	height = pages[0].offsetHeight;
+    width = pages[0].offsetWidth;
+    height = pages[0].offsetHeight;
 
-	if (width > height){
-		print_opt = "{@page {size: A5 landscape;} body {zoom: 90%;}";
-	}else{
-		print_opt = "{@page {size: A5 portrait;}";
-	}
+    if (width > height){
+        print_opt = "{@page {size: A5 landscape;} body {zoom: 90%;}";
+    }else{
+        print_opt = "{@page {size: A5 portrait;}";
+    }
 
-	for(i=0; i<pages.length; i++){
-		pages[i].childNodes[0].style = "display: block;";
-	}
+    for(i=0; i<pages.length; i++){
+        pages[i].childNodes[0].style = "display: block;";
+    }
 
-	var pdf = pages[0].parentNode.parentNode.parentNode.innerHTML;
+    var pdf = pages[0].parentNode.parentNode.parentNode.innerHTML;
 
-	newWindow = window.open("", "Document", "height=865,width=625,status=yes,toolbar=no,menubar=no");  
-	newWindow.document.getElementsByTagName("head")[0].innerHTML = head + "<style> .nofilter{filter: none !important;} </style>" + "<style> @media print " + print_opt + "</style>";
-	newWindow.document.title = tit;
-	newWindow.document.getElementsByTagName("body")[0].innerHTML = pdf;
-	newWindow.document.getElementsByTagName("body")[0].childNodes[0].style = "";
+    var htmlContent = head + "<style> .nofilter{filter: none !important;} </style>" + "<style> @media print " + print_opt + "</style>";
+    htmlContent += "<title>" + tit + "</title>";
+    htmlContent += pdf;
+
+    // Generate a Blob from the HTML content
+    var blob = new Blob([htmlContent], {type: 'text/html'});
+
+    // Create a link element
+    var url = window.URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+
+	// Get the last part of the URL
+    var urlParts = window.location.pathname.split('/');
+    var filename = urlParts[urlParts.length - 1];
+
+    // Set the download attribute of the link
+    link.download = filename + '.html';
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Simulate a click on the link
+    link.click();
+
+    // Remove the link from the body
+    document.body.removeChild(link);
 }
 
 function addButtons(){
