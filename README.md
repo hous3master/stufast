@@ -1,4 +1,4 @@
-<img src="img/StuHack.png" alt="StuFastBanner" style="max-height: 200px;">
+<img src="img/StuHack.png" alt="StuFastBanner" style="max-height: 100px;">
 
 StuFast is a chromium extension for www.studocu.com to get free premium features.
 
