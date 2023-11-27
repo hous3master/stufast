@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
 
-  "name": "StuHack++",
+  "name": "StuFast",
   "version": "0.6.0",
   "description": "Banner remover, filter pass & document downloader",
   "icons": {

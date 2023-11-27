@@ -4,7 +4,7 @@
 
 ---
 
-Stufast is a chromium extension for www.studocu.com to get free premium features.
+StuFast is a chromium extension for www.studocu.com to get free premium features.
 
 Note. This is a fork from the [original StuHack repo](https://github.com/isanchop/stuhack) 🧑‍💻
 
